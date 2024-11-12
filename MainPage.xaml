@@ -1,0 +1,44 @@
+﻿<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MyMauiApp.MainPage">
+    <StackLayout Padding="30" Spacing="20">
+
+        <!-- Display Current Tokens -->
+        <Label Text="Tokens: 100" 
+               x:Name="TokensLabel"
+               FontSize="Large" 
+               HorizontalOptions="Center" />
+
+        <!-- Slider to Set Win Threshold -->
+        <Label Text="Set your odds threshold:"
+               FontSize="Medium"
+               HorizontalOptions="Center" />
+        
+        <Slider x:Name="OddsSlider"
+                Minimum="1.01"
+                Maximum="99.99"
+                Value="52.00"
+                ValueChanged="OnSliderValueChanged"
+                ThumbColor="Blue" />
+
+        <!-- Show the current threshold value -->
+        <Label Text="Win if roll is above: 52.00"
+               x:Name="ThresholdLabel"
+               FontSize="Medium"
+               HorizontalOptions="Center" />
+
+        <!-- Bet Button -->
+        <Button Text="Roll to Bet"
+                FontSize="Large"
+                Clicked="OnBetButtonClicked"
+                HorizontalOptions="Center" />
+        
+        <!-- Display Outcome of the Bet -->
+        <Label Text=""
+               x:Name="ResultLabel"
+               FontSize="Large"
+               HorizontalOptions="Center"
+               TextColor="Green" />
+
+    </StackLayout>
+</ContentPage>
