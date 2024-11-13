@@ -14,11 +14,12 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
 
-      # Set up JDK (Java Development Kit)
+      # Set up JDK 11
       - name: Set up JDK 11
         uses: actions/setup-java@v3
         with:
           java-version: '11'
+          distribution: 'adoptopenjdk'   # Added distribution
 
       # Install dependencies
       - name: Install dependencies
@@ -30,9 +31,7 @@ jobs:
       # Set up Android SDK
       - name: Set up Android SDK
         run: |
-          echo "sdk.dir=/usr/local/lib/android/sdk" > local.properties
-          mkdir -p $HOME/.android
-          echo "sdk.dir=$HOME/.android/sdk" >> $HOME/.android/local.properties
+          echo "sdk.dir=$HOME/.android/sdk" > $HOME/.android/local.properties
           curl -sSL https://dl.google.com/android/repository/commandlinetools-linux-8512546_latest.zip -o commandlinetools.zip
           unzip commandlinetools.zip -d $HOME/.android
           yes | $HOME/.android/cmdline-tools/bin/sdkmanager --sdk_root=$HOME/.android --licenses
