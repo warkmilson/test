@@ -43,7 +43,7 @@ jobs:
       # Build the APK
       - name: Build APK
         run: |
-          cd android
+          cd Platforms/Android
           ./gradlew assembleRelease
 
       # Upload the APK as an artifact
