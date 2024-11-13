@@ -31,12 +31,14 @@ jobs:
       # Set up Android SDK
       - name: Set up Android SDK
         run: |
+          mkdir -p $HOME/.android
           echo "sdk.dir=$HOME/.android/sdk" > $HOME/.android/local.properties
           curl -sSL https://dl.google.com/android/repository/commandlinetools-linux-8512546_latest.zip -o commandlinetools.zip
           unzip commandlinetools.zip -d $HOME/.android
           yes | $HOME/.android/cmdline-tools/bin/sdkmanager --sdk_root=$HOME/.android --licenses
           $HOME/.android/cmdline-tools/bin/sdkmanager --sdk_root=$HOME/.android --update
           $HOME/.android/cmdline-tools/bin/sdkmanager --sdk_root=$HOME/.android "platforms;android-30" "build-tools;30.0.3" "tools"
+
 
       # Build the APK
       - name: Build APK
