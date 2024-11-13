@@ -19,7 +19,7 @@ jobs:
         uses: actions/setup-java@v3
         with:
           java-version: '11'
-          distribution: 'adoptopenjdk'   # Added distribution
+          distribution: 'zulu'   # Use zulu for Java 11
 
       # Install dependencies
       - name: Install dependencies
